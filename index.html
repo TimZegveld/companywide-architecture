@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Companywide architecture — jem-id workshop</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="workshop.js" defer></script><script src="deck.js" defer></script>
+</head>
+<body>
+  <main id="stage" aria-label="Workshop presentatie">
+    <section class="slide cover active" data-title="Companywide architecture">
+      <header><img class="logo" src="assets/logo.svg" alt="jem-id"><span data-date></span></header>
+      <div class="cover-body"><p class="eyebrow">Samen ontwerpen · workshop</p><h1>Companywide<br><span>architecture</span></h1><p class="lead">Architectuur begrijpen.<br>Keuzes samen bespreekbaar maken.</p></div>
+      <div class="cover-bottom"><p>Voor iedereen die aan onze producten werkt</p><p>Technische én sociale skills</p></div>
+      <aside class="notes">Welkom! Na Randy’s presentatie gaan we zelf oefenen. Wie vaak met architectuur werkt, oefent met uitleggen, afwegingen en luisteren naar andere rollen. Wie er minder mee werkt, leert systeemgrenzen herkennen en vragen stellen. We doen allemaal mee omdat productkeuzes, klantbehoeften en de manier waarop we samenwerken invloed hebben op onze systemen. Vraag: wie heeft bij een technische keuze weleens gedacht ‘waarom eigenlijk?’ Vandaag gaat het om het gesprek en de onderbouwing, niet om de mooiste tekening.</aside>
+    </section>
+    <section class="slide" data-title="Architectuur raakt iedere rol">
+      <header><img class="logo" src="assets/logo.svg" alt="jem-id"><span>Waarom we dit samen doen</span></header>
+      <h2>Architectuur raakt<br><span>iedere rol</span></h2>
+      <p class="intro">Hoe onze systemen samenwerken, hangt samen met hoe wij keuzes maken.</p>
+      <div class="role-lines"><div><strong>Product & klant</strong><p>Welk probleem lossen we op? Wat heeft prioriteit?</p></div><div><strong>Development & beheer</strong><p>Hoe bouwen we het? Wat moet betrouwbaar blijven?</p></div><div><strong>Teams & organisatie</strong><p>Wie is verantwoordelijk? Waar moeten we afstemmen?</p></div></div>
+      <p class="statement">Vandaag oefenen we met één gedeeld beeld: <b>het C4-model.</b></p>
+      <aside class="notes">Randy gebruikt Gregor Hohpes architect elevator als metafoor: verschillende rollen zien andere delen van dezelfde organisatie. Architectuur verbindt die perspectieven. Een prioriteit kan gevolgen hebben voor systemen; een technische beperking kan gevolgen hebben voor het product. Vraag elke groep daarom om vaktermen uit te leggen en niet meteen een oplossing te tekenen. C4 geeft verschillende zoomniveaus: C1 context, C2 containers, C3 componenten, C4 code. C4 is een hulpmiddel voor het gesprek, niet een volledig model van de organisatie. Bron: https://github.com/vroegop/architecturetalk en https://c4model.com/</aside>
+    </section>
+    <section class="slide" data-title="De workshop">
+      <header><img class="logo" src="assets/logo.svg" alt="jem-id"><span>Op papier · vier mensen per groep</span></header>
+      <h2>De <span>workshop</span></h2>
+      <div class="workshop-columns"><div><p class="eyebrow">Oefenkata · voorlopig</p><h3 data-kata-title></h3><p data-kata-description></p><p class="challenge" data-kata-challenge></p><p class="small">Schrijf vragen en aannames op.<br><b>Sofie loopt langs als PO.</b></p></div><div class="agenda"><p class="eyebrow">Voorstel tijdpad · 90 minuten</p><ol><li><b>10 min</b><span>Intro & opdracht begrijpen</span></li><li><b>20 min</b><span>C1 tekenen: mensen & systemen</span></li><li><b>5 min</b><span>Samen inchecken</span></li><li><b>25 min</b><span>C2 uitwerken · C3 als verdieping</span></li><li><b>20 min</b><span>Presenteren: 5 minuten per groep</span></li><li><b>10 min</b><span>Terugblik & inzichten delen</span></li></ol></div></div>
+      <aside class="notes">Dit is een tijdelijke oefenkata, niet Sofies definitieve opdracht. Lees de casus voor; houd de oplossing open. Eindresultaat: een C1, een C2 en enkele onderbouwde keuzes. C3 alleen als verdieping voor een groep die eraan toe is. C4/code doen we niet. Begin bij mensen, doelen en de systeemgrens. Geef alle pijlen een betekenis. Een container in C4 is een uitvoerbare applicatie of gegevensopslag, niet per se Docker. Niet-developers toetsen of de tekening begrijpelijk is en of het probleem wordt opgelost. Developers bewaken samenhang en leggen technische termen uit. Verdeel het tekenen, vragen stellen en noteren; laat iedereen aan bod komen. Het tijdpad is een voorstel van 90 minuten inclusief vier presentaties.</aside>
+    </section>
+    <section class="slide" data-title="Groepen & ruimtes">
+      <header><img class="logo" src="assets/logo.svg" alt="jem-id"><span>Sofie · rondlopende PO</span></header>
+      <h2>Groepen <span>& ruimtes</span></h2>
+      <p class="intro">Vier perspectieven aan tafel. Iedereen denkt en tekent mee.</p>
+      <div id="groups" class="group-list"></div>
+      <p class="small group-note">Voorlopige indeling · nog afstemmen op rol en ervaring · ruimtes volgen</p>
+      <aside class="notes">17 aanmeldingen: 16 deelnemers en Sofie als rondlopende PO. Dit is een voorlopige indeling; rollen en ervaringsniveaus zijn nog niet bekend. Controleer vóór vrijdag of developers en niet-developers en verschillende kennisniveaus goed over de groepen verdeeld zijn. Vul ook de echte ruimtes in workshop.js in. Geef elke groep A2-vellen, stiften en een C4-hand-out. Laat een groep alvast iemand kiezen die presenteert; dat hoeft niet degene met de meeste architectuurervaring te zijn. Spreek af waar en wanneer iedereen voor de check-in terugkomt.</aside>
+    </section>
+    <section class="slide dark" data-title="Check-in na 20 minuten">
+      <header><img class="logo" src="assets/logo.svg" alt="jem-id"><span>Na 20 minuten groepswerk</span></header>
+      <h2>Even <span>inchecken</span></h2>
+      <div class="check-columns"><div><p class="big-question">Kan iedereen jullie<br>tekening uitleggen?</p><ul class="check-questions"><li>Wie gebruikt het systeem en waarvoor?</li><li>Waar ligt de grens? Wat staat erbuiten?</li><li>Welke vraag of aanname staat nog open?</li></ul></div><div class="zoom"><p class="eyebrow">De volgende stap</p><h3>C1 → C2</h3><p>Zoom in op jullie systeem.</p><p>Welke applicaties en gegevensopslag zijn nodig? Hoe werken die samen?</p><p class="small">Bespreek wat nog nodig is.<br>Pas de resterende werktijd samen aan.</p></div></div>
+      <aside class="notes">Haal de groepen na twintig minuten bij elkaar. Vraag kort naar voortgang en obstakels. Is er een duidelijk C1 met gebruikers, één systeem in scope en externe systemen? Hebben pijlen een label? Bespreek eventuele C4-vragen. Leg C2 uit als inzoomen op het systeem uit C1: afzonderlijke applicaties en gegevensopslag met verantwoordelijkheden en communicatie. Kies geen technologie omdat dat moet: alleen waar die keuze nuttig is. C3 zoomt verder in op één container en toont de belangrijkste componenten en hun verantwoordelijkheden. Spreek samen de resterende tijd af; het schema is aanpasbaar. Bron: https://c4model.com/diagrams/system-context en https://c4model.com/diagrams/container</aside>
+    </section>
+    <section class="slide finale" data-title="Laat je model zien">
+      <header><img class="logo" src="assets/logo.svg" alt="jem-id"><span>5 minuten per groep</span></header>
+      <h2>Laat je <span>model zien</span></h2>
+      <div class="present-columns"><div><p class="intro">Eén iemand presenteert.<br>De hele groep helpt bij vragen.</p><ol class="presentation-list"><li><b>01</b><span>Voor wie is jullie systeem?<small>Laat de context zien: C1.</small></span></li><li><b>02</b><span>Hoe werkt het samen?<small>Loop door C2, eventueel C3.</small></span></li><li><b>03</b><span>Welke keuze maakte verschil?<small>Noem een afweging en een open vraag.</small></span></li></ol></div><div class="takeaway"><p class="eyebrow">Neem mee naar je werk</p><p>Welke vraag ga jij<br>voortaan <span>eerder stellen?</span></p></div></div>
+      <aside class="notes">Maximaal vijf minuten per groep, inclusief korte vragen. Start de vijfminutentimer opnieuw voor elke groep. Vraag luisteraars: welke keuze begrijp je nu beter? Welke aanname wil je toetsen? Laat de presentator het model uitleggen zonder dat de meest ervaren developer direct overneemt. Sluit na alle presentaties af met een terugblik van tien minuten: wat veranderde er door een ander perspectief, en welke vraag neem je mee naar je eigen team? Bedank Sofie en de deelnemers. Inspiratie en bronnen staan in de voorbereiding en op de hand-out.</aside>
+    </section>
+    <footer class="slide-footer"><span>jem-id · companywide architecture</span><span id="counter" aria-live="polite"></span></footer>
+    <div id="progress"></div>
+  </main>
+  <nav class="controls" aria-label="Presentatiebediening"><button id="prev" aria-label="Vorige slide">←</button><button id="next" aria-label="Volgende slide">→</button><button id="notes-toggle" aria-pressed="false">Notities <kbd>N</kbd></button><button id="timer-toggle">Timer <kbd>T</kbd></button><button id="prep-toggle">Voorbereiding</button><a href="handout.html" target="_blank" rel="noopener">Hand-out ↗</a><button id="fullscreen">Volledig scherm <kbd>F</kbd></button><button id="help-toggle" aria-label="Toon sneltoetsen">?</button></nav>
+  <aside id="speaker" hidden aria-label="Sprekersnotities"><div class="panel-heading"><h2>Sprekersnotities</h2><button data-close="speaker" aria-label="Sluit notities">×</button></div><div id="speaker-content"></div></aside>
+  <aside id="timer" hidden aria-label="Workshop timer"><div class="panel-heading"><h2>Timer</h2><button data-close="timer" aria-label="Sluit timer">×</button></div><label for="minutes">Minuten</label><input id="minutes" type="number" min="1" max="180" value="20"><div class="timer-presets"><button data-minutes="20">Groepswerk · 20</button><button data-minutes="5">Presentatie · 5</button></div><output id="time" role="timer">20:00</output><p id="timer-status" aria-live="polite">Klaar om te starten</p><button id="timer-start">Start</button><button id="timer-reset">Reset</button></aside>
+  <dialog id="prep"><div class="panel-heading"><h2>Voorbereiding</h2><button data-close="prep" aria-label="Sluit voorbereiding">×</button></div><p>Voor vrijdag 6 november</p><ul><li>A2-vellen en voldoende stiften regelen.</li><li>Per deelnemer een C4-hand-out op één A4 printen.</li><li>Sofies definitieve opdracht verwerken en uitdelen.</li><li>Groepen afstemmen op kennisniveau en rol.</li><li>Ruimtes invullen en terugkomplek afspreken.</li><li>Beamer, volledig scherm en timer testen.</li></ul><h3>Inspiratie & bronnen</h3><p><a href="https://github.com/vroegop/architecturetalk" target="_blank" rel="noopener">Randy Vroegop · Company wide architecture</a><br><a href="https://c4model.com/" target="_blank" rel="noopener">Simon Brown · C4-model</a><br><a href="https://www.architecturalkatas.com/" target="_blank" rel="noopener">Architectural Katas</a><br><a href="https://www.jem-id.nl/" target="_blank" rel="noopener">jem-id · huisstijlreferentie</a></p><p class="small">De sierteeltkata is een eigen oefenvoorbeeld en wordt vervangen door Sofies opdracht.</p></dialog>
+  <dialog id="help"><div class="panel-heading"><h2>Bediening</h2><button data-close="help" aria-label="Sluit hulp">×</button></div><p>← / → of spatie: navigeren<br>1–6: naar een slide<br>N: sprekersnotities<br>T: timer tonen of verbergen<br>F: volledig scherm<br>Home / End: eerste / laatste slide<br>Escape: panelen sluiten<br>?: deze uitleg</p><p>Op een touchscreen kun je naar links of rechts vegen.</p></dialog>
+</body>
+</html>
