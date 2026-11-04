@@ -3,19 +3,26 @@ const config = window.WORKSHOP;
 const slides = [...document.querySelectorAll('.slide')];
 const $ = id => document.getElementById(id);
 document.querySelectorAll('[data-date]').forEach(el => el.textContent = config.date);
-for (const key of ['title', 'description', 'challenge']) document.querySelector(`[data-kata-${key}]`).textContent = config.kata[key];
+for (const key of ['title', 'description', 'challenge']) {
+  const target = document.querySelector(`[data-kata-${key}]`);
+  if (target) target.textContent = config.kata[key];
+}
+const groups = $('groups');
+groups.style.cssText = 'display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:35px';
 for (const group of config.groups) {
-  const row = document.createElement('div'); row.className = 'group-row';
-  for (const [tag, value, className] of [['strong', group.name, ''], ['span', group.people.join(' · '), ''], ['span', group.room, 'room']]) {
-    const el = document.createElement(tag); el.textContent = value; el.className = className; row.append(el);
-  }
-  $('groups').append(row);
+  const card = document.createElement('article');
+  card.style.cssText = 'min-height:230px;border-top:8px solid #aadb1e;padding:22px 18px;background:#fff;display:flex;flex-direction:column';
+  const name = document.createElement('span'); name.textContent = group.name; name.style.cssText = 'font-size:18px;letter-spacing:.05em;text-transform:uppercase';
+  const room = document.createElement('strong'); room.textContent = group.room; room.style.cssText = 'font-size:31px;font-weight:500;line-height:1.15;margin-top:16px';
+  const people = document.createElement('span'); people.textContent = group.people.join(' · '); people.style.cssText = 'font-size:20px;line-height:1.45;margin-top:auto;padding-top:20px';
+  card.append(name, room, people); groups.append(card);
 }
-const facilitator = document.createElement('div'); facilitator.className = 'group-row facilitator-row';
-for (const [tag, value, className] of [['strong', config.facilitator.name, ''], ['span', config.facilitator.role, ''], ['span', config.facilitator.activity, 'room']]) {
-  const el = document.createElement(tag); el.textContent = value; el.className = className; facilitator.append(el);
+const facilitator = document.createElement('div');
+facilitator.style.cssText = 'grid-column:1 / -1;display:grid;grid-template-columns:165px 1fr;gap:24px;padding:19px 24px;margin-top:4px;background:#aadb1e;align-items:center';
+for (const [tag, value, style] of [['strong', config.facilitator.name, 'font-size:28px;font-weight:500'], ['span', `${config.facilitator.role} · ${config.facilitator.activity}`, 'font-size:21px']]) {
+  const el = document.createElement(tag); el.textContent = value; el.style.cssText = style; facilitator.append(el);
 }
-$('groups').append(facilitator);
+groups.append(facilitator);
 let current = 0;
 function resize() { document.documentElement.style.setProperty('--scale', Math.min(innerWidth / 1600, Math.max(1, innerHeight - 56) / 900)); }
 function show(index) {
@@ -24,6 +31,7 @@ function show(index) {
   document.body.dataset.slide = current + 1;
   $('counter').textContent = `${String(current + 1).padStart(2, '0')} / ${String(slides.length).padStart(2, '0')}`;
   $('progress').style.width = `${(current + 1) / slides.length * 100}%`;
+  document.querySelector('.slide-footer').style.color = slides[current].classList.contains('dark') ? '#fff' : '#1d1d1b';
   $('speaker-content').textContent = slides[current].querySelector('.notes').textContent;
   $('prev').disabled = current === 0; $('next').disabled = current === slides.length - 1;
   document.title = `${current + 1}. ${slides[current].dataset.title} — jem-id`;
