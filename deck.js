@@ -11,6 +11,11 @@ for (const group of config.groups) {
   }
   $('groups').append(row);
 }
+const facilitator = document.createElement('div'); facilitator.className = 'group-row facilitator-row';
+for (const [tag, value, className] of [['strong', config.facilitator.name, ''], ['span', config.facilitator.role, ''], ['span', config.facilitator.activity, 'room']]) {
+  const el = document.createElement(tag); el.textContent = value; el.className = className; facilitator.append(el);
+}
+$('groups').append(facilitator);
 let current = 0;
 function resize() { document.documentElement.style.setProperty('--scale', Math.min(innerWidth / 1600, Math.max(1, innerHeight - 56) / 900)); }
 function show(index) {
@@ -39,7 +44,7 @@ document.addEventListener('keydown', event => {
   const key = event.key.toLowerCase();
   if (['arrowright', 'arrowdown', ' ', 'pagedown'].includes(key)) { event.preventDefault(); show(current + 1); }
   else if (['arrowleft', 'arrowup', 'pageup'].includes(key)) { event.preventDefault(); show(current - 1); }
-  else if (/^[1-6]$/.test(key)) show(Number(key) - 1);
+  else if (/^\d$/.test(key) && Number(key) >= 1 && Number(key) <= slides.length) show(Number(key) - 1);
   else if (key === 'home') show(0); else if (key === 'end') show(slides.length - 1);
   else if (key === 'n') togglePanel('speaker'); else if (key === 't') togglePanel('timer');
   else if (key === 'f') fullscreen(); else if (key === '?') $('help').showModal();

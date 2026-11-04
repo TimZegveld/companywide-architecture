@@ -4,7 +4,7 @@ HTML/JavaScript-workshopdeck voor vrijdag 6 november 2026. Open `index.html` dir
 
 ## Inhoud aanpassen
 
-`workshop.js` bevat datum, groepen, ruimtes en de voorlopige sierteeltkata. Sofie is ingedeeld als rondlopende PO; de andere 16 deelnemers vormen vier groepen van vier. De indeling is een voorstel: kennisniveau en rollen zijn nog niet bekend. Ruimtes moeten nog worden ingevuld. De kata is een eigen oefenvoorbeeld, bedoeld om door Sofies opdracht te worden vervangen. Zowel de slides als de hand-out lezen dezelfde kata.
+`workshop.js` bevat datum, groepen, locaties en de voorlopige sierteeltkata. Sofie is ingedeeld als rondlopende PO en wisselt tussen de vier locaties. De 17 overige deelnemers vormen drie groepen van vier en één groep van vijf. De kata is een eigen oefenvoorbeeld, bedoeld om door Sofies opdracht te worden vervangen. Zowel de slides als de hand-out lezen dezelfde kata.
 
 Het tijdpad op slide 3 is een voorstel van 90 minuten. De zes slides en sprekersnotities staan in `index.html`. De notities bevatten extra toelichting, leerdoelen en bronverwijzingen.
 

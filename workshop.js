@@ -2,11 +2,12 @@
 window.WORKSHOP = {
   date: 'Vrijdag 6 november 2026',
   groups: [
-    { name: 'Groep 1', people: ['Tim', 'Youri', 'Nicole', 'Vince'], room: 'Ruimte nog te bepalen' },
-    { name: 'Groep 2', people: ['Jacco', 'Jeffrey', 'Laura', 'Joeri'], room: 'Ruimte nog te bepalen' },
-    { name: 'Groep 3', people: ['Jan', 'Bram', 'Paul', 'Kevin'], room: 'Ruimte nog te bepalen' },
-    { name: 'Groep 4', people: ['Remco', 'Stefan', 'Danny', 'Leon'], room: 'Ruimte nog te bepalen' }
+    { name: 'Groep 1', people: ['Tim', 'Vince', 'Danny', 'Joeri'], room: 'Vijver' },
+    { name: 'Groep 2', people: ['Jacco', 'Kevin', 'Jeffrey', 'Stefan'], room: 'Ballenbak' },
+    { name: 'Groep 3', people: ['Jan', 'Youri', 'Laura', 'Paul'], room: 'Skybox' },
+    { name: 'Groep 4', people: ['Leon', 'Remco', 'Bram', 'Nicole', 'Jeroen'], room: 'Starbucks' }
   ],
+  facilitator: { name: 'Sofie', role: 'PO', activity: 'Wisselt tussen de locaties' },
   kata: {
     title: 'Een partij bloemen, één betrouwbare bestelling',
     description: 'Een kweker biedt beschikbare partijen bloemen aan. Een koper ziet het aanbod en bestelt een hoeveelheid voor een gewenste leverdatum. De kweker bevestigt de bestelling.',
