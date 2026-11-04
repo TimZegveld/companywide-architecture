@@ -16,6 +16,7 @@ for (const group of config.groups) {
   const room = document.createElement('strong'); room.textContent = group.room; room.style.cssText = 'font-size:31px;font-weight:500;line-height:1.15;margin-top:16px';
   const people = document.createElement('span'); people.textContent = group.people.join(' · '); people.style.cssText = 'font-size:20px;line-height:1.45;margin-top:auto;padding-top:20px';
   card.append(name, room, people); groups.append(card);
+  card.style.animation = `deck-rise .65s ${0.10 + groups.children.length * 0.14}s ease both`;
 }
 const facilitator = document.createElement('div');
 facilitator.style.cssText = 'grid-column:1 / -1;display:grid;grid-template-columns:165px 1fr;gap:24px;padding:19px 24px;margin-top:4px;background:#aadb1e;align-items:center';
@@ -23,6 +24,7 @@ for (const [tag, value, style] of [['strong', config.facilitator.name, 'font-siz
   const el = document.createElement(tag); el.textContent = value; el.style.cssText = style; facilitator.append(el);
 }
 groups.append(facilitator);
+facilitator.style.animation = 'deck-rise .65s .78s ease both';
 let current = 0;
 function resize() { document.documentElement.style.setProperty('--scale', Math.min(innerWidth / 1600, Math.max(1, innerHeight - 56) / 900)); }
 function show(index) {
