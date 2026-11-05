@@ -6,13 +6,13 @@ HTML/JavaScript-workshopdeck voor vrijdag 6 november 2026. Open `index.html` dir
 
 `workshop.js` bevat datum, groepen, locaties en de voorlopige sierteeltkata. Sofie is ingedeeld als rondlopende PO en wisselt tussen de vier locaties. De 17 overige deelnemers vormen drie groepen van vier en één groep van vijf. De kata is een eigen oefenvoorbeeld, bedoeld om door Sofies opdracht te worden vervangen. Zowel de slides als de hand-out lezen dezelfde kata.
 
-Het tijdpad op slide 3 is een voorstel van 90 minuten. De zes slides en sprekersnotities staan in `index.html`. De notities bevatten extra toelichting, leerdoelen en bronverwijzingen.
+Het tijdpad op slide 3 is een voorstel van 120 minuten: C1 (20 min), C2 (25 min) en C3 (20 min) als losse rondes, elk gevolgd door een check-in van 5 minuten. De tien slides en sprekersnotities staan in `index.html`. Slides 7–9 tonen per zoomniveau (C1, C2, C3) de beschikbare tijd en een voorbeeld uit een ander domein (fietsenmaker), voor de start van elke ronde en het samen inchecken. De notities bevatten extra toelichting, leerdoelen en bronverwijzingen.
 
 ## Presenteren
 
-- Pijltjes, spatie of veeggebaar: navigeren; 1–6: direct naar een slide.
+- Pijltjes, spatie of veeggebaar: navigeren; 1–9: direct naar een slide; End: laatste slide.
 - N: notities. Deze zijn een overlay op hetzelfde scherm en dus zichtbaar op een beamer; gebruik ze voor voorbereiding of op je eigen scherm.
-- T: timer; kies 20 minuten voor groepswerk of 5 minuten voor een presentatie. Start en pauzeer handmatig. De timer loopt door bij navigeren of verbergen.
+- T: timer; kies 20 minuten voor C1 of C3, 25 minuten voor C2, of 5 minuten voor een presentatie. Start en pauzeer handmatig. De timer loopt door bij navigeren of verbergen.
 - F: volledig scherm. Escape: panelen sluiten.
 - Voorbereiding: checklist en bronnen. Hand-out: open `handout.html` en print op één A4, schaal 100%, zonder browserkop- en voetteksten.
 
