@@ -25,6 +25,16 @@ for (const [tag, value, style] of [['strong', config.facilitator.name, 'font-siz
 }
 groups.append(facilitator);
 facilitator.style.animation = 'deck-rise .65s .78s ease both';
+// Hergebruik de voorbeelddiagrammen uit de C4-uitleg op de check-in-slides (met unieke marker-id's).
+document.querySelectorAll('[data-example]').forEach((figure, n) => {
+  const svg = document.getElementById(figure.dataset.example).cloneNode(true);
+  svg.removeAttribute('id');
+  svg.querySelectorAll('marker[id]').forEach(marker => {
+    const old = marker.id; marker.id = `${old}-${n}`;
+    svg.querySelectorAll(`[marker-end="url(#${old})"]`).forEach(el => el.setAttribute('marker-end', `url(#${marker.id})`));
+  });
+  figure.append(svg);
+});
 let current = 0;
 function resize() { document.documentElement.style.setProperty('--scale', Math.min(innerWidth / 1600, Math.max(1, innerHeight - 56) / 900)); }
 function show(index) {

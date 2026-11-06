@@ -2,10 +2,10 @@
 window.WORKSHOP = {
   date: 'Vrijdag 6 november 2026',
   groups: [
-    { name: 'Groep 1', people: ['Tim', 'Bram', 'Danny', 'Joeri', 'Luca'], room: 'Vijver' },
-    { name: 'Groep 2', people: ['Jeroen', 'Kevin', 'Jeffrey', 'Stefan'], room: 'Ballenbak' },
-    { name: 'Groep 3', people: ['Nick', 'Jan', 'Remco', 'Laura'], room: 'Skybox' },
-    { name: 'Groep 4', people: ['Leon', 'Vince', 'Nicole', 'Jacco'], room: 'Starbucks' }
+    { name: 'Groep 1', people: ['Tim', 'Luca', 'Remco', 'Jacco'], room: 'Vijver' },
+    { name: 'Groep 2', people: ['Jeroen', 'Bram', 'Stefan', 'Jeffrey'], room: 'Ballenbak' },
+    { name: 'Groep 3', people: ['Nick', 'Kevin', 'Danny', 'Jan', 'Laura'], room: 'Skybox' },
+    { name: 'Groep 4', people: ['Leon', 'Vince', 'Joeri', 'Nicole'], room: 'Starbucks' }
   ],
   facilitator: { name: 'Sofie', role: 'PO', activity: 'Wisselt tussen de locaties' },
   kata: {
