@@ -6,7 +6,7 @@ HTML/JavaScript-workshopdeck voor vrijdag 6 november 2026. Open `index.html` dir
 
 `workshop.js` bevat datum, groepen, locaties en de kata van Sofie. Sofie is ingedeeld als rondlopende PO en wisselt tussen de vier locaties. De 17 overige deelnemers vormen drie groepen van vier en één groep van vijf. Zowel de slides als de hand-out lezen dezelfde kata.
 
-Het tijdpad op slide 3 is een voorstel van 120 minuten: C1 (20 min), C2 (25 min) en C3 (20 min) als losse rondes, elk gevolgd door een check-in van 5 minuten. De tien slides en sprekersnotities staan in `index.html`. Slides 7–9 tonen per zoomniveau (C1, C2, C3) de beschikbare tijd en een voorbeeld uit een ander domein (fietsenmaker), voor de start van elke ronde en het samen inchecken. De notities bevatten extra toelichting, leerdoelen en bronverwijzingen.
+Het tijdpad op slide 3 is een voorstel van 120 minuten: C1 (20 min), C2 (25 min) en C3 (20 min) als losse rondes, elk gevolgd door een check-in van 5 minuten. De zestien slides en sprekersnotities staan in `index.html`. Slides 5–10 leggen het C4-model uit aan de hand van de voorbeeldkata ‘Doe mij maar een BLT’ (C1, C2, C3 en een grijze C4). Slides 13–15 tonen per zoomniveau (C1, C2, C3) de beschikbare tijd en hetzelfde BLT-voorbeeld (gekloond uit de uitlegslides door `deck.js`), voor de start van elke ronde en het samen inchecken. De notities bevatten extra toelichting, leerdoelen en bronverwijzingen.
 
 ## Presenteren
 
