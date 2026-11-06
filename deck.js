@@ -37,8 +37,30 @@ document.querySelectorAll('[data-example]').forEach((figure, n) => {
 });
 let current = 0;
 function resize() { document.documentElement.style.setProperty('--scale', Math.min(innerWidth / 1600, Math.max(1, innerHeight - 56) / 900)); }
-function show(index) {
+// Slides met data-steps lichten per klik één onderdeel van .step-items uit voordat er doorgebladerd wordt.
+let step = 0;
+const stepsOf = i => Number(slides[i].dataset.steps || 0);
+function renderSteps() {
+  slides.forEach((slide, i) => {
+    const active = i === current ? step : 0;
+    slide.querySelectorAll('[data-step]').forEach(el => {
+      const hidden = active < Number(el.dataset.step);
+      if (!hidden && el.classList.contains('step-hidden') && i === current) el.classList.add('step-in');
+      if (hidden) el.classList.remove('step-in');
+      el.classList.toggle('step-hidden', hidden);
+    });
+    const items = slide.querySelector('.step-items'); if (!items) return;
+    // Stap 0: alles grijs; stap 1..n: één onderdeel uitgelicht; daarna alles weer aan.
+    const parts = [...items.children].filter(el => !el.hasAttribute('aria-hidden'));
+    items.classList.toggle('stepping', active <= parts.length);
+    parts.forEach((el, n) => el.classList.toggle('lit', n === active - 1));
+  });
+}
+function next() { if (step < stepsOf(current)) { step++; renderSteps(); } else show(current + 1); }
+function prev() { if (step > 0) { step--; renderSteps(); } else if (current > 0) show(current - 1, true); }
+function show(index, atEnd = false) {
   current = Math.max(0, Math.min(slides.length - 1, index));
+  step = atEnd ? stepsOf(current) : 0; renderSteps();
   slides.forEach((slide, i) => { slide.classList.toggle('active', i === current); slide.setAttribute('aria-hidden', String(i !== current)); });
   document.body.dataset.slide = current + 1;
   $('counter').textContent = `${String(current + 1).padStart(2, '0')} / ${String(slides.length).padStart(2, '0')}`;
@@ -53,7 +75,7 @@ function fromHash() { const n = Number(location.hash.slice(1)); show(Number.isIn
 function togglePanel(id) { $(id).hidden = !$(id).hidden; if (id === 'speaker') $('notes-toggle').setAttribute('aria-pressed', String(!$(id).hidden)); }
 function closePanel(id) { const el = $(id); if (el instanceof HTMLDialogElement) el.close(); else el.hidden = true; if (id === 'speaker') $('notes-toggle').setAttribute('aria-pressed', 'false'); }
 async function fullscreen() { try { if (document.fullscreenElement) await document.exitFullscreen(); else await document.documentElement.requestFullscreen(); } catch { $('fullscreen').textContent = 'Gebruik F11 voor volledig scherm'; } }
-$('prev').onclick = () => show(current - 1); $('next').onclick = () => show(current + 1);
+$('prev').onclick = prev; $('next').onclick = next;
 $('notes-toggle').onclick = () => togglePanel('speaker'); $('timer-toggle').onclick = () => togglePanel('timer');
 $('prep-toggle').onclick = () => $('prep').showModal(); $('help-toggle').onclick = () => $('help').showModal(); $('fullscreen').onclick = fullscreen;
 document.querySelectorAll('[data-close]').forEach(el => el.onclick = () => closePanel(el.dataset.close));
@@ -62,8 +84,8 @@ document.addEventListener('keydown', event => {
   if (event.target.matches('input,textarea,select') || document.querySelector('dialog[open]') || event.altKey || event.ctrlKey || event.metaKey) return;
   if (event.key === ' ' && event.target.matches('button,a')) return;
   const key = event.key.toLowerCase();
-  if (['arrowright', 'arrowdown', ' ', 'pagedown'].includes(key)) { event.preventDefault(); show(current + 1); }
-  else if (['arrowleft', 'arrowup', 'pageup'].includes(key)) { event.preventDefault(); show(current - 1); }
+  if (['arrowright', 'arrowdown', ' ', 'pagedown'].includes(key)) { event.preventDefault(); next(); }
+  else if (['arrowleft', 'arrowup', 'pageup'].includes(key)) { event.preventDefault(); prev(); }
   else if (/^\d$/.test(key) && Number(key) >= 1 && Number(key) <= slides.length) show(Number(key) - 1);
   else if (key === 'home') show(0); else if (key === 'end') show(slides.length - 1);
   else if (key === 'n') togglePanel('speaker'); else if (key === 't') togglePanel('timer');
@@ -71,12 +93,13 @@ document.addEventListener('keydown', event => {
 });
 let touchStart;
 $('stage').addEventListener('touchstart', e => { touchStart = { x: e.changedTouches[0].clientX, y: e.changedTouches[0].clientY }; }, { passive: true });
-$('stage').addEventListener('touchend', e => { if (!touchStart) return; const dx = e.changedTouches[0].clientX - touchStart.x, dy = e.changedTouches[0].clientY - touchStart.y; if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy)) show(current + (dx < 0 ? 1 : -1)); touchStart = null; }, { passive: true });
+$('stage').addEventListener('touchend', e => { if (!touchStart) return; const dx = e.changedTouches[0].clientX - touchStart.x, dy = e.changedTouches[0].clientY - touchStart.y; if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy)) (dx < 0 ? next : prev)(); touchStart = null; }, { passive: true });
 let remaining = 1200, deadline = null;
 function drawTimer() {
   if (deadline !== null) { remaining = Math.max(0, Math.ceil((deadline - Date.now()) / 1000)); if (remaining === 0) { deadline = null; $('timer-start').textContent = 'Start'; $('timer-status').textContent = 'Tijd is om'; } }
   $('time').textContent = `${String(Math.floor(remaining / 60)).padStart(2, '0')}:${String(remaining % 60).padStart(2, '0')}`;
   $('timer').classList.toggle('expired', remaining === 0);
+  document.body.classList.toggle('timer-done', remaining === 0);
 }
 function resetTimer() { const minutes = Math.max(1, Math.min(180, Number($('minutes').value) || 20)); $('minutes').value = minutes; remaining = Math.round(minutes * 60); deadline = null; $('timer-start').textContent = 'Start'; $('timer-status').textContent = 'Klaar om te starten'; drawTimer(); }
 $('timer-start').onclick = () => { if (deadline !== null) { drawTimer(); deadline = null; $('timer-start').textContent = 'Verder'; $('timer-status').textContent = 'Gepauzeerd'; } else { if (remaining === 0) resetTimer(); deadline = Date.now() + remaining * 1000; $('timer-start').textContent = 'Pauze'; $('timer-status').textContent = 'Timer loopt'; } drawTimer(); };

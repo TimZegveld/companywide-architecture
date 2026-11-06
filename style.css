@@ -7,3 +7,14 @@
 .kata-reqs li{grid-template-columns:130px 1fr}
 .c-explain .c-level .eyebrow{color:var(--ink)}.c-explain .c-level .intro{color:var(--ink)}.c-explain .check-questions li:before{color:#719600}.c-explain .c-example{border:1px solid #d8d8d2}
 .c-off .c-level{color:#8a8a84}.c-off .c-level h2 span{color:#b0b0aa}.c-off .c-example{position:relative}.c-off .c-example svg{filter:grayscale(1);opacity:.32}.c-stamp{position:absolute;left:50%;top:52%;transform:translate(-50%,-50%) rotate(-6deg);background:#fff;border:4px solid var(--ink);padding:10px 28px;font-size:34px;font-weight:500;text-transform:uppercase;letter-spacing:.12em;white-space:nowrap}
+@keyframes timer-glow{0%,100%{opacity:1}50%{opacity:.25}}
+body.timer-done #progress{display:none}
+body.timer-done #stage{box-shadow:0 0 0 4px var(--green),0 0 60px 18px #aadb1eaa}
+body.timer-done #stage::after{content:'';position:absolute;inset:0;z-index:4;pointer-events:none;box-shadow:inset 0 0 0 10px var(--green),inset 0 0 110px 40px #aadb1ecc;animation:timer-glow 1.2s ease-in-out infinite}
+@media (prefers-reduced-motion:reduce){body.timer-done #stage::after{animation:none}}
+.sources{list-style:none;padding:0;margin:48px 0 0}.sources li{display:grid;grid-template-columns:260px 1fr 440px;gap:28px;align-items:baseline;border-top:1px solid #ccc;padding:22px 0;font-size:25px;line-height:1.35}.sources li:last-child{border-bottom:1px solid #ccc}.sources b{font-weight:500}.sources a{color:#385100;font-size:21px;text-decoration:none;border-bottom:2px solid var(--green);justify-self:start}
+@media (prefers-reduced-motion:reduce){.loop-dot,circle.now-pulse{display:none}}
+.lift-slide .statement{font-size:44px;line-height:1.35;margin-top:70px;max-width:760px}
+.step-items>*{transition:filter .35s ease,translate .35s ease}.step-items.stepping>*{filter:opacity(.22) grayscale(1)}.step-items.stepping>.lit{filter:none;translate:0 -10px}.c4-levels.stepping>.lit{border-top-width:12px}
+.step-hidden{visibility:hidden}@keyframes step-rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}.step-in{animation:step-rise .45s ease both!important}
+.handoff-steps.stepping>.lit{border-top-width:12px!important}
