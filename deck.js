@@ -102,7 +102,7 @@ function drawTimer() {
   document.body.classList.toggle('timer-done', remaining === 0);
 }
 function resetTimer() { const minutes = Math.max(1, Math.min(180, Number($('minutes').value) || 20)); $('minutes').value = minutes; remaining = Math.round(minutes * 60); deadline = null; $('timer-start').textContent = 'Start'; $('timer-status').textContent = 'Klaar om te starten'; drawTimer(); }
-$('timer-start').onclick = () => { if (deadline !== null) { drawTimer(); deadline = null; $('timer-start').textContent = 'Verder'; $('timer-status').textContent = 'Gepauzeerd'; } else { if (remaining === 0) resetTimer(); deadline = Date.now() + remaining * 1000; $('timer-start').textContent = 'Pauze'; $('timer-status').textContent = 'Timer loopt'; } drawTimer(); };
+$('timer-start').onclick = () => { if (deadline !== null) { drawTimer(); deadline = null; $('timer-start').textContent = 'Verder'; $('timer-status').textContent = 'Gepauzeerd'; } else { if (remaining === 0) resetTimer(); deadline = Date.now() + remaining * 1000; $('timer-start').textContent = 'Pauze'; $('timer-status').textContent = `Timer loopt · eindtijd ${new Date(deadline).toLocaleTimeString('nl-NL', { hour: '2-digit', minute: '2-digit' })}`; } drawTimer(); };
 $('timer-reset').onclick = resetTimer; $('minutes').onchange = resetTimer;
 document.querySelectorAll('[data-minutes]').forEach(el => el.onclick = () => { $('minutes').value = el.dataset.minutes; resetTimer(); });
 setInterval(drawTimer, 200); addEventListener('resize', resize); addEventListener('hashchange', fromHash); resize(); fromHash();
