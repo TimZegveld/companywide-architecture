@@ -1,5 +1,8 @@
 'use strict';
-for (const key of ['title', 'description', 'challenge']) document.getElementById(`kata-${key}`).textContent = window.WORKSHOP.kata[key];
+const { kata } = window.WORKSHOP;
+for (const key of ['title', 'description']) document.getElementById(`kata-${key}`).textContent = kata[key];
+document.querySelector('#kata-challenge b').textContent = kata.challenge;
+document.getElementById('kata-questions').replaceChildren(...kata.questions.map(question => Object.assign(document.createElement('li'), { textContent: question })));
 
 const collaboration = document.createElement('section');
 collaboration.style.cssText = 'border-top:2px solid #aadb1e;margin-top:16px;padding-top:10px;break-inside:avoid';
