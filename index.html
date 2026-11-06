@@ -18,6 +18,7 @@
       .slide.active .workshop-columns > div, .slide.active .check-columns > div, .slide.active .present-columns > div { animation: deck-rise .55s ease both }
       .slide.active .workshop-columns > div:nth-child(1), .slide.active .check-columns > div:nth-child(1), .slide.active .present-columns > div:nth-child(1) { animation-delay: .14s }
       .slide.active .workshop-columns > div:nth-child(2), .slide.active .check-columns > div:nth-child(2), .slide.active .present-columns > div:nth-child(2) { animation-delay: .32s }
+      .slide.active > .lift { animation: deck-rise .6s .1s ease both }
       .slide.active .timeline-loop { animation: deck-rise .6s .1s ease both }
       .slide.active .c-level > * { animation: deck-rise .5s ease both }
       .slide.active .c-level > :nth-child(2) { animation-delay: .06s }
@@ -33,7 +34,7 @@
       .slide.active .handoff-steps > :nth-child(5) { animation-delay: .60s }
     }
   </style>
-  <script src="workshop.js" defer></script><script src="deck.js" defer></script>
+  <script src="workshop.js" defer></script><script src="deck.js" defer></script><script src="elevator.js" defer></script>
 </head>
 <body>
   <main id="stage" aria-label="Workshop presentatie">
@@ -42,12 +43,13 @@
       <div class="cover-body"><p class="eyebrow">Samen ontwerpen · workshop</p><h1>Companywide<br><span>architecture</span></h1><p class="lead">Van verschillende perspectieven<br>naar één gedeeld beeld.</p></div>
       <aside class="notes">Welkom! Na Randy’s presentatie gaan we zelf oefenen. Wie vaak met architectuur werkt, oefent met uitleggen, afwegingen en luisteren naar andere rollen. Wie er minder mee werkt, leert systeemgrenzen herkennen en vragen stellen. We doen allemaal mee omdat productkeuzes, klantbehoeften en de manier waarop we samenwerken invloed hebben op onze systemen. Vraag: wie heeft bij een technische keuze weleens gedacht ‘waarom eigenlijk?’ Vandaag gaat het om het gesprek en de onderbouwing, niet om de mooiste tekening.</aside>
     </section>
-    <section class="slide" data-title="Architectuur raakt iedere rol">
+    <section class="slide lift-slide" data-title="Architectuur raakt iedere rol">
       <header><img class="logo" src="assets/logo.svg" alt="jem-id"><span>Waarom we dit samen doen</span></header>
       <h2>Architectuur raakt<br><span>iedere rol</span></h2>
       <p class="intro">Hoe onze systemen samenwerken, hangt samen met hoe wij keuzes maken.</p>
       <div class="role-lines"><div><strong>Product & klant</strong><p>Welk probleem lossen we op? Wat heeft prioriteit?</p></div><div><strong>Development, data & UX</strong><p>Hoe bouwen we het? Welke inzichten uit data en gebruikerservaring zijn nodig?</p></div><div><strong>Teams & organisatie</strong><p>Wie is verantwoordelijk? Waar moeten we afstemmen?</p></div></div>
       <p class="statement">“De architect is niet een verdieping. De architect is de <b>lift.</b>”</p>
+      <figure class="lift" data-elevator></figure>
       <aside class="notes">De formulering op de slide komt uit Randy Vroegops presentatie, gebaseerd op Gregor Hohpes Architect Elevator-metafoor. Verschillende rollen zien andere delen van dezelfde organisatie. Architectuur verbindt die perspectieven. Een prioriteit kan gevolgen hebben voor systemen; inzichten van de data-analist en de UX-designer laten zien wat gebruikers nodig hebben en hoe een oplossing wordt ervaren. Vraag elke groep daarom om vaktermen uit te leggen en niet meteen een oplossing te tekenen. C4 geeft verschillende zoomniveaus: C1 context, C2 containers, C3 componenten, C4 code. C4 is een hulpmiddel voor het gesprek, niet een volledig model van de organisatie. Bronnen: https://github.com/vroegop/architecturetalk · Gregor Hohpe, The Software Architect Elevator · https://c4model.com/</aside>
     </section>
     <section class="slide" data-title="Het tijdpad">
